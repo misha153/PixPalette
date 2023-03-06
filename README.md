@@ -15,4 +15,4 @@
 
 PixPalette Team
 
-Licensed under the [MIT](LICENSE.txt) license.
+Licensed under the [MIT](LICENSE.md) license.
