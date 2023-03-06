@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PixPallete</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <section class="section mainPage">
+    <div class="mainPage-wrapper container">
+      <div class="mainPage__content">
+        <div class="mainPage__logo-wrapper">
+          <img src="static/img/newlogo 1.png" ]class="mainPage__logo">
+        </div>
+        <p class="mainPage__desk">Get palette from image<br> with PixPalette!</p>
+        <label for="dowload" class="dowload-btnLabel">
+          <input type="file" name="dowload" accept=".jpg, .jpeg, .png" id="dowload" class="dowload-btnInput" onchange="dowload(this)">
+          <span class="dowload-btnLabel__text">Upload image</span>
+          <span class="dowload-btnLabel__circle"></span>
+        </label>
+      </div>
+    </div>
+    <div class="mainPage__madeby">
+      <p class="madeby__text">Made by PixPalette team<br>Victor Andrievskiy Mikhail Karpov Gleb Svidoruk</p>
+    </div>
+  </section>
+
+  <section class="section workPage">
+    <div class="workPage-wrapper container">
+        <div class="tools">
+          <div class="pipetTools"><img src="static/img/Vector.png"></div>
+          <div class="apps">Скачать приложение</div>
+          <!-- <input type="file" name="photo" accept=".jpg, .jpeg, .png" id="dowload" class="dowload-btnInput" onchange="dowload(this)"> -->
+          <label class="dowload_img" for="dowload">Загрузить фото</label>
+        </div>
+        <div class="colors">
+          <div class="color color-1 choose-color" onclick="chooseColor(this)"></div>
+          <div class="color color-2" onclick="chooseColor(this)"></div>
+          <div class="color color-3" onclick="chooseColor(this)"></div>
+          <div class="color color-4" onclick="chooseColor(this)"></div>
+          <div class="color color-5" onclick="chooseColor(this)"></div>
+          <div class="color color-6" onclick="chooseColor(this)"></div>
+          <div class="color color-7" onclick="chooseColor(this)"></div>
+          <div class="color color-8" onclick="chooseColor(this)"></div>
+
+          <div class="pipetColor"></div>
+        </div>
+        <div class="info">
+          <div class="info__color-block">
+            <p class="info__title">rgb <span><a href="#!" class="info__title-link info__title-link--rgb" onclick="activeTypeRgb(this)">F</a> / <a href="#!" class="info__title-link info__title-link--rgb" onclick="activeTypeRgb(this)">H</a></span></p>
+            <span class="info__color-text"><span class="color-text__wrapper color-text__wrapper--rgb">255 255 255</span><a href="#!"><img src="static/img/Group 20.png"></a></span>
+          </div>
+          <div class="info__color-block info__color-block--cmyk">
+            <p class="info__title">cmyk <span><a href="#!" class="info__title-link" onclick="activeTypeCmyk(this)">F</a></span></p>
+            <span class="info__color-text"><span class="color-text__wrapper color-text__wrapper--cmyk">31 3 2 1</span><a href="#!"><img src="static/img/Group 20.png"></a></span>
+          </div>
+          <div class="info__color-block">
+            <p class="info__title">hsv <span><a href="#!" class="info__title-link" onclick="activeTypeHsv(this)">F</a></span></p>
+            <span class="info__color-text"><span class="color-text__wrapper color-text__wrapper--hsv">0 0 39.2</span><a href="#!"><img src="static/img/Group 20.png"></a></span>
+          </div>
+          <div class="info__color-block">
+            <p class="info__title">ncs</p>
+            <span class="info__color-text"><span class="color-text__wrapper">6500-N</span><a href="#!"><img src="static/img/Group 20.png"></a></span>
+          </div>
+        </div>
+        <div class="img">
+          <div class="img-previow"></div>
+        </div>
+        <div class="palette"></div>
+    </div>
+  </section>
+  <script src="static/js/script.js"></script>
+  <!-- <input type="color" name="" id=""> -->
+</body>
+</html>
