@@ -1,0 +1,3 @@
+colorpalette-master==0.0.7
+convacolor==0.9.3
+Flask==2.2.3
