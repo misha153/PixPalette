@@ -3,6 +3,8 @@
 ## Requirements
 > - requirements.txt - requirements file
 
+## To install all compiling requirements via `pip`:
+
 `pip install -r requirements.txt`
 
 ## Developers
