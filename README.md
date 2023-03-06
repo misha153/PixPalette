@@ -10,4 +10,4 @@
 
 ## License
 
-[![GitHub license](https://img.shields.io/github/license/link1107/MinecraftLightSync)]
+[![GitHub license](https://img.shields.io/github/license/misha153/PixPalette)](https://github.com/misha153/PixPalette)
