@@ -1,7 +1,7 @@
 # PixPalette
 
 ## Requirements
-> - requirements.txt - requirements file
+> - (requirements.txt) - requirements file
 
 ## To install all compiling requirements via `pip`:
 
