@@ -10,7 +10,10 @@ typeColorRgb = body.querySelector('.info__title-link--rgb'),
 typeColorCmyk = body.querySelector('.info__title-link--cmyk'),
 typeColorHsv = body.querySelector('.info__title-link--hsv'),
 formMain = body.querySelector('#formMain'),
-dowloadBtn = body.querySelector('#dowload')
+dowloadBtn = body.querySelector('#dowload'),
+paletteInp = body.querySelector('.palette-btnInput'),
+paletteForm = body.querySelector('.paletteForm')
+
 
 let reroll = ()=>{  
   document.querySelector('.workPage-wrapper').scrollIntoView({
@@ -64,9 +67,11 @@ let activeTypeHsv = (link)=>{
     link.classList.add('info__title-link--active')
   }
 }
-
+// let col = ['#808080','#808080','#808080','#808080','#808080','#808080','#808080','#808080']
+// colors.forEach((item, index, arr) => {
+//   item.style.backgroundColor = col[index]
+// });
 colors.forEach((item, index, arr) => {
-  console.log(item.textContent);
   item.style.backgroundColor = item.textContent
   item.textContent = ''
 });
@@ -178,6 +183,8 @@ $('#example').mouseup(function (e) {
     $('#status--g').html(p[1])
     $('#status--b').html(p[2])
     $('.pipetColor').css('backgroundColor', hex)
+    paletteInp.value = `${p[0]} ${p[1]} ${p[2]}`
+    $('.paletteForm').submit()
     $('.circle').css("display", "block");
     $('.circle').css("top", y);
     $('.circle').css("left", x);
