@@ -1,29 +1,34 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="RU-ru">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PixPallete</title>
-  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- <form method="post" enctype="multipart/form-data" class="form">
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+  </form> -->
   <section class="section mainPage">
     <div class="mainPage-wrapper container">
       <div class="mainPage__content">
         <div class="mainPage__logo-wrapper">
-          <img src="static/img/newlogo 1.png" ]class="mainPage__logo">
+          <img src="img/newlogo 1.png" ]class="mainPage__logo">
         </div>
         <p class="mainPage__desk">Get palette from image<br> with PixPalette!</p>
-        <label for="dowload" class="dowload-btnLabel">
-          <input type="file" name="dowload" accept=".jpg, .jpeg, .png" id="dowload" class="dowload-btnInput" onchange="dowload(this)">
-          <span class="dowload-btnLabel__text">Upload image</span>
-          <span class="dowload-btnLabel__circle"></span>
-        </label>
+        <form method="post" enctype="multipart/form-data" id="formMain">
+          <input type="file" name="photo" accept=".jpg, .jpeg, .png" id="dowload" class="dowload-btnInput" onchange="reroll(); $('#forMain').submit()">
+          <label for="dowload" class="dowload-btnLabel">
+            <span class="dowload-btnLabel__text">Upload image</span>
+            <span class="dowload-btnLabel__circle"></span>
+          </label>
+        </form>
       </div>
     </div>
     <div class="mainPage__madeby">
@@ -34,48 +39,89 @@
   <section class="section workPage">
     <div class="workPage-wrapper container">
         <div class="tools">
-          <div class="pipetTools"><img src="static/img/Vector.png"></div>
+          <div class="pipetTools"><img src="img/Vector.png"></div>
           <div class="apps">Скачать приложение</div>
-          <!-- <input type="file" name="photo" accept=".jpg, .jpeg, .png" id="dowload" class="dowload-btnInput" onchange="dowload(this)"> -->
           <label class="dowload_img" for="dowload">Загрузить фото</label>
         </div>
         <div class="colors">
-          <div class="color color-1 choose-color" onclick="chooseColor(this)"></div>
-          <div class="color color-2" onclick="chooseColor(this)"></div>
-          <div class="color color-3" onclick="chooseColor(this)"></div>
-          <div class="color color-4" onclick="chooseColor(this)"></div>
-          <div class="color color-5" onclick="chooseColor(this)"></div>
-          <div class="color color-6" onclick="chooseColor(this)"></div>
-          <div class="color color-7" onclick="chooseColor(this)"></div>
-          <div class="color color-8" onclick="chooseColor(this)"></div>
+          <div class="color color-1 choose-color" onclick="typePalette(this)"></div>
+          <div class="color color-2" onclick="typePalette(this)">#f000f0</div>
+          <div class="color color-3" onclick="typePalette(this)"></div>
+          <div class="color color-4" onclick="typePalette(this)"></div>
+          <div class="color color-5" onclick="typePalette(this)"></div>
+          <div class="color color-6" onclick="typePalette(this)"></div>
+          <div class="color color-7" onclick="typePalette(this)"></div>
+          <div class="color color-8" onclick="typePalette(this)"></div>
 
           <div class="pipetColor"></div>
         </div>
         <div class="info">
           <div class="info__color-block">
-            <p class="info__title">rgb <span><a href="#!" class="info__title-link info__title-link--rgb" onclick="activeTypeRgb(this)">F</a> / <a href="#!" class="info__title-link info__title-link--rgb" onclick="activeTypeRgb(this)">H</a></span></p>
-            <span class="info__color-text"><span class="color-text__wrapper color-text__wrapper--rgb">255 255 255</span><a href="#!"><img src="static/img/Group 20.png"></a></span>
+            <p class="info__title">rgb <span><a href="#!" class="info__title-link info__title-link--rgb" onclick="activeTypeRgb(this), chooseType(this)">F</a> / <a href="#!" class="info__title-link info__title-link--rgb" onclick="activeTypeRgb(this), chooseType(this)">H</a></span></p>
+            <span class="info__color-text"><span class="color-text__wrapper color-text__wrapper--rgb">0 0 0</span><a href="#!"><img src="img/Group 20.png"></a></span>
           </div>
           <div class="info__color-block info__color-block--cmyk">
-            <p class="info__title">cmyk <span><a href="#!" class="info__title-link" onclick="activeTypeCmyk(this)">F</a></span></p>
-            <span class="info__color-text"><span class="color-text__wrapper color-text__wrapper--cmyk">31 3 2 1</span><a href="#!"><img src="static/img/Group 20.png"></a></span>
+            <p class="info__title">cmyk <span><a href="#!" class="info__title-link info__title-link--cmyk" onclick="activeTypeCmyk(this), chooseType(this)">F</a></span></p>
+            <span class="info__color-text"><span class="color-text__wrapper color-text__wrapper--cmyk">0 0 0 00</span><a href="#!"><img src="img/Group 20.png"></a></span>
           </div>
           <div class="info__color-block">
-            <p class="info__title">hsv <span><a href="#!" class="info__title-link" onclick="activeTypeHsv(this)">F</a></span></p>
-            <span class="info__color-text"><span class="color-text__wrapper color-text__wrapper--hsv">0 0 39.2</span><a href="#!"><img src="static/img/Group 20.png"></a></span>
+            <p class="info__title">hsv <span><a href="#!" class="info__title-link info__title-link--hsv" onclick="activeTypeHsv(this), chooseType(this)">F</a></span></p>
+            <span class="info__color-text"><span class="color-text__wrapper color-text__wrapper--hsv">0 0 00.0</span><a href="#!"><img src="img/Group 20.png"></a></span>
           </div>
           <div class="info__color-block">
-            <p class="info__title">ncs</p>
-            <span class="info__color-text"><span class="color-text__wrapper">6500-N</span><a href="#!"><img src="static/img/Group 20.png"></a></span>
+            <p class="info__title">ncs </p>
+            <span class="info__color-text"><span class="color-text__wrapper color-text__wrapper--ncs">0000-N</span><a href="#!"><img src="img/Group 20.png"></a></span>
           </div>
         </div>
         <div class="img">
           <div class="img-previow"></div>
         </div>
-        <div class="palette"></div>
+
+
+        <form method="post" enctype="multipart/form-data" id="paletteForm">
+          <input type="text" id="palett-btn" class="palette-btnInput">
+        </form>
+
+        <div class="palette">
+          <div class="wrapper__status">
+            <div class="wrapper__canvas">
+              <div class="canvas">
+                <canvas id="example" width="200" height="200"></canvas>
+                <div class="circle"></div>
+              </div>
+              <div class="canvas__tone">
+                <canvas id="example__tone" width="20" height="200"></canvas>
+                <div class="circle__tone"></div>
+              </div>
+            </div>
+            <div id="mini-status"></div>
+            <div id="wrapper__status--hex" class="palette__status">
+              <span>- HEX -</span>
+              <div class="blockWithRgb"><div id="status">#FF0000</div><a href="#!" class="blockWithRgb__link"><img src="img/Group 20.png"></a></div>
+            </div>
+            <div id="wrapper__status--r" class="palette__status">
+              <span>- R -</span>
+              <div class="blockWithRgb"><div id="status--r">255</div><a href="#!" class="blockWithRgb__link"><img src="img/Group 20.png"></a></div>
+            </div>
+            <div id="wrapper__status--g" class="palette__status">
+              <span>- G -</span>
+              <div class="blockWithRgb"><div id="status--g">0</div><a href="#!" class="blockWithRgb__link"><img src="img/Group 20.png"></a></div>
+            </div>
+            <div id="wrapper__status--b" class="palette__status">
+              <span>- B -</span>
+              <div class="blockWithRgb"><div id="status--b">0</div><a href="#!" class="blockWithRgb__link"><img src="img/Group 20.png"></a></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- <form method="post" action="путь.путь" class="form">
+          <input type="text" id="fieldForm">
+          <input type="submit" value="Отправить" id="submitForm">
+        </form> -->
     </div>
   </section>
-  <script src="static/js/script.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="script.js"></script>
   <!-- <input type="color" name="" id=""> -->
 </body>
 </html>
