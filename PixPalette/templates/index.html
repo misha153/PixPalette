@@ -19,11 +19,11 @@
     <div class="mainPage-wrapper container">
       <div class="mainPage__content">
         <div class="mainPage__logo-wrapper">
-          <img src="img/newlogo 1.png" ]class="mainPage__logo">
+          <img src="img/newlogo 1.png" class="mainPage__logo">
         </div>
         <p class="mainPage__desk">Get palette from image<br> with PixPalette!</p>
         <form method="post" enctype="multipart/form-data" id="formMain">
-          <input type="file" name="photo" accept=".jpg, .jpeg, .png" id="dowload" class="dowload-btnInput" onchange="reroll(); $('#forMain').submit()">
+          <input type="file" name="photo" accept=".jpg, .jpeg, .png" id="dowload" class="dowload-btnInput" onchange="reroll(); $('#forMain').submit(); paste()">
           <label for="dowload" class="dowload-btnLabel">
             <span class="dowload-btnLabel__text">Upload image</span>
             <span class="dowload-btnLabel__circle"></span>
@@ -44,14 +44,14 @@
           <label class="dowload_img" for="dowload">Загрузить фото</label>
         </div>
         <div class="colors">
-          <div class="color color-1 choose-color" onclick="typePalette(this)"></div>
-          <div class="color color-2" onclick="typePalette(this)">#f000f0</div>
-          <div class="color color-3" onclick="typePalette(this)"></div>
-          <div class="color color-4" onclick="typePalette(this)"></div>
-          <div class="color color-5" onclick="typePalette(this)"></div>
-          <div class="color color-6" onclick="typePalette(this)"></div>
-          <div class="color color-7" onclick="typePalette(this)"></div>
-          <div class="color color-8" onclick="typePalette(this)"></div>
+          <div class="color color-1 choose-color" onclick="typePalette(this)">#ffddf0</div>
+          <div class="color color-2" onclick="typePalette(this)">#fd01f0</div>
+          <div class="color color-3" onclick="typePalette(this)">#f050f0</div>
+          <div class="color color-4" onclick="typePalette(this)">#f000f0</div>
+          <div class="color color-5" onclick="typePalette(this)">#fd0Ff0</div>
+          <div class="color color-6" onclick="typePalette(this)">#f000f0</div>
+          <div class="color color-7" onclick="typePalette(this)">#f0A0f0</div>
+          <div class="color color-8" onclick="typePalette(this)">#f0F0f0</div>
 
           <div class="pipetColor"></div>
         </div>
@@ -101,15 +101,15 @@
             </div>
             <div id="wrapper__status--r" class="palette__status">
               <span>- R -</span>
-              <div class="blockWithRgb"><div id="status--r">255</div><a href="#!" class="blockWithRgb__link"><img src="img/Group 20.png"></a></div>
+              <div class="blockWithRgb"><div id="status--r">255</div></div>
             </div>
             <div id="wrapper__status--g" class="palette__status">
               <span>- G -</span>
-              <div class="blockWithRgb"><div id="status--g">0</div><a href="#!" class="blockWithRgb__link"><img src="img/Group 20.png"></a></div>
+              <div class="blockWithRgb"><div id="status--g">0</div></div>
             </div>
             <div id="wrapper__status--b" class="palette__status">
               <span>- B -</span>
-              <div class="blockWithRgb"><div id="status--b">0</div><a href="#!" class="blockWithRgb__link"><img src="img/Group 20.png"></a></div>
+              <div class="blockWithRgb"><div id="status--b">0</div></div>
             </div>
           </div>
         </div>
