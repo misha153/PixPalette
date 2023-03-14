@@ -14,7 +14,6 @@ dowloadBtn = body.querySelector('#dowload'),
 paletteInp = body.querySelector('.palette-btnInput'),
 paletteForm = body.querySelector('.paletteForm')
 
-
 let reroll = ()=>{  
   document.querySelector('.workPage-wrapper').scrollIntoView({
     behavior: 'smooth',
@@ -248,3 +247,11 @@ return Math.floor(Math.random() * max);
 function randomColor() {
   return `rgb(${randomInt(256)}, ${randomInt(256)}, ${randomInt(256)})`
 }
+setInterval(() => {
+  // let width = $('.wrapper__canvas').width('100%')
+  $('.wrapper__canvas').height($('.canvas').width())
+  $('.canvas').height($('.wrapper__canvas').width())
+  $('#example__tone').height($('#example').width())
+  // $('.palette').width('100%')
+  // $('.wrapper__status').width('100%')
+});
