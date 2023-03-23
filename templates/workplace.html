@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="RU-ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PixPallete</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <section class="section workPage">
+    <div class="workPage-wrapper container">
+        <div class="tools">
+          <div class="pipetTools pad"><img src="static\resources\pipette.png"></div>
+          <div class="apps pad">Download app</div>
+          <form method="post" enctype="multipart/form-data" id="addbtn">
+            <input type="file" name="photo" accept=".jpg, .jpeg, .png" id="dowload" class="dowload-btnInput" onclick=" localStorage.setItem('hexMin', '#ff0000'); localStorage.setItem('resPath', '123'); localStorage.setItem('resPal', '123'); localStorage.setItem('resPic', '123'); localStorage.setItem('click', '')"
+             onchange="$('#addbtn').submit(); basePalette();">
+             <label for="dowload" class="dowload_img pad">Upload image</label>
+          </form>
+        </div>
+        <div class="colors">
+          <div class="color firstcolor choose-color" onclick="localStorage.click = ''; chooseColor(this), resPicOrResPal();"></div>
+          <div class="color" onclick="localStorage.click = ''; chooseColor(this), resPicOrResPal();"></div>
+          <div class="color" onclick="localStorage.click = ''; chooseColor(this), resPicOrResPal();"></div>
+          <div class="color" onclick="localStorage.click = ''; chooseColor(this), resPicOrResPal();"></div>
+          <div class="color" onclick="localStorage.click = ''; chooseColor(this), resPicOrResPal();"></div>
+          <div class="color" onclick="localStorage.click = ''; chooseColor(this), resPicOrResPal();"></div>
+          <div class="color" onclick="localStorage.click = ''; chooseColor(this), resPicOrResPal();"></div>
+          <div class="color secondcolor" onclick="localStorage.click = ''; chooseColor(this), resPicOrResPal();"></div>
+
+          <div class="pipetColor" onclick="showPic(); writeColor('resPic')"></div>
+        </div>
+        <div class="info">
+          <div class="info__color-block">
+            <p class="info__title">rgb <span><a href="#!" class="info__title-link info__title-link--rgb" onclick="activeTypeRgb(this), chooseType(this), resPicOrResPal()">F</a> / <a href="#!" class="info__title-link info__title-link--rgb" onclick="activeTypeRgb(this), chooseType(this), resPicOrResPal()">H</a></span></p>
+            <span class="info__color-text"><span class="color-text__wrapper color-text__wrapper--rgb"></span><a href="#!"><img src="static\resources\Group 20.png"></a></span>
+          </div>
+          <div class="info__color-block info__color-block--cmyk">
+            <p class="info__title">cmyk <span><a href="#!" class="info__title-link info__title-link--cmyk" onclick="activeTypeCmyk(this), chooseType(this), resPicOrResPal()">F</a></span></p>
+            <span class="info__color-text"><span class="color-text__wrapper color-text__wrapper--cmyk"></span><a href="#!"><img src="static\resources\Group 20.png"></a></span>
+          </div>
+          <div class="info__color-block">
+            <p class="info__title">hsv <span><a href="#!" class="info__title-link info__title-link--hsv" onclick="activeTypeHsv(this), chooseType(this), resPicOrResPal()">F</a></span></p>
+            <span class="info__color-text"><span class="color-text__wrapper color-text__wrapper--hsv"></span><a href="#!"><img src="static\resources\Group 20.png"></a></span>
+          </div>
+          <div class="info__color-block">
+            <p class="info__title">ncs </p>
+            <span class="info__color-text"><span class="color-text__wrapper color-text__wrapper--ncs"></span><a href="#!"><img src="static\resources\Group 20.png"></a></span>
+          </div>
+        </div>
+        <div class="img">
+          <div class="img-previow"></div>
+        </div>
+        
+        <form method="post" enctype="multipart/form-data" id="paletteForm">
+          <input type="text" name="picker" id="palett-btn" class="palette-btnInput">
+        </form>
+
+        <div class="count">{{jsonStr}}</div>
+
+        <div class="palette">
+          <div class="wrapper__status">
+            <div class="wrapper__canvas">
+              <div class="canvas">
+                <canvas id="example" width="200" height="200"></canvas>
+                <div class="circle"></div>
+              </div>
+              <div class="canvas__tone">
+                <canvas id="example__tone" width="20" height="200"></canvas>
+                <div class="circle__tone"></div>
+              </div>
+            </div>
+            <div id="mini-status"></div>
+            <div id="wrapper__status--hex" class="palette__status">
+              <span>HEX</span>
+              <div class="blockWithRgb"><div id="status">- #FF0000 -</div><a href="#!" class="blockWithRgb__link"><img src="static\resources\Group 20.png"></a></div>
+            </div>
+            <div id="wrapper__status--r" class="palette__status">
+              <span>R</span>
+              <div class="blockWithRgb"><div id="status--r">- 255 -</div><a href="#!" class="blockWithRgb__link"></a></div>
+            </div>
+            <div id="wrapper__status--g" class="palette__status">
+              <span>G</span>
+              <div class="blockWithRgb"><div id="status--g">- 0 -</div><a href="#!" class="blockWithRgb__link"></a></div>
+            </div>
+            <div id="wrapper__status--b" class="palette__status">
+              <span>B</span>
+              <div class="blockWithRgb"><div id="status--b">- 0 -</div><a href="#!" class="blockWithRgb__link"></a></div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="static/js/script.js"></script>
+  <!-- <input type="color" name="" id=""> -->
+</body>
+</html>
