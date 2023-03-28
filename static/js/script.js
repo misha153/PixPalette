@@ -1,15 +1,4 @@
-let showPic = ()=>{
-  if (localStorage.click == '') {
-    localStorage.click = 'rgb(255, 0, 0)'
-  } else if (localStorage.click !== ''){
-    localStorage.click = ''
-  }
-}
 console.clear()
-let example = document.getElementById('example');
-let context = example.getContext('2d');
-let gr = context.createLinearGradient(200,0,0,200)
-
 const body = document.querySelector('body'),
 blockShowImage = document.querySelector('.img-previow'),
 btnDowload = body.querySelector('#dowload'),
@@ -144,58 +133,65 @@ colors.forEach((item2, index2, arr2) => {
 //     console.log(`${res['palette'][index][item2]} - ${item2}`);
 //   });
 // });
+let io = 'resPal'
 let writeColor = (typeChange)=>{
   colors.forEach((item, index, arr) => {
-    if ((localStorage.click !== '' || item.classList.contains('choose-color')) && $(`.info__title-link--rgb:contains('F')`).hasClass('info__title-link--active')) {
+    if (item.classList.contains('choose-color') && $(`.info__title-link--rgb:contains('F')`).hasClass('info__title-link--active')) {
       if (typeChange == 'resPic') {
         rgbBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))['floatrgb']}`.split(',').join(', ')
-        console.log(JSON.parse(localStorage.getItem(typeChange))['floatrgb']);
       } else if (typeChange == 'resPal'){
         rgbBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))[index]['floatrgb']}`.split(',').join(', ')
+        localStorage.click = ''
       }
-    } else if ((localStorage.click !== '' || item.classList.contains('choose-color')) && $(`.info__title-link--rgb:contains('H')`).hasClass('info__title-link--active')) {
+    } else if (item.classList.contains('choose-color') && $(`.info__title-link--rgb:contains('H')`).hasClass('info__title-link--active')) {
       if (typeChange == 'resPic') {
         rgbBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))['hex']}`.split(',').join(', ')
       } else if (typeChange == 'resPal'){
         rgbBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))[index]['hex']}`.split(',').join(', ')
+        localStorage.click = ''
       }
-    } else if ((localStorage.click !== '' || item.classList.contains('choose-color')) && !$(`.info__title-link--rgb:contains('F')`).hasClass('info__title-link--active') && !$(`.info__title-link--rgb:contains('H')`).hasClass('info__title-link--active')){
+    } else if (item.classList.contains('choose-color') && !$(`.info__title-link--rgb:contains('F')`).hasClass('info__title-link--active') && !$(`.info__title-link--rgb:contains('H')`).hasClass('info__title-link--active')){
       if (typeChange == 'resPic') {
         rgbBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))['rgb']}`.split(',').join(', ')
       } else if (typeChange == 'resPal'){
         rgbBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))[index]['rgb']}`.split(',').join(', ')
+        localStorage.click = ''
       }
     }
 
-    if ((localStorage.click !== '' || item.classList.contains('choose-color')) && $(`.info__title-link--cmyk:contains('F')`).hasClass('info__title-link--active')) {
+    if (item.classList.contains('choose-color') && $(`.info__title-link--cmyk:contains('F')`).hasClass('info__title-link--active')) {
       if (typeChange == 'resPic') {
         cmykBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))['floatcmyk']}`.split(',').join(', ')
       } else if (typeChange == 'resPal'){
         cmykBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))[index]['floatcmyk']}`.split(',').join(', ')
+        localStorage.click = ''
       }
-    } else if ((localStorage.click !== '' || item.classList.contains('choose-color')) && !$(`.info__title-link--cmyk:contains('F')`).hasClass('info__title-link--active')){
+    } else if (item.classList.contains('choose-color') && !$(`.info__title-link--cmyk:contains('F')`).hasClass('info__title-link--active')){
       if (typeChange == 'resPic') {
-        cmykBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))['cmyk']}`.split(',').join(', ')
+        cmykBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))['cmyk']}`.split(',').join('. ')
       } else if (typeChange == 'resPal'){
-        cmykBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))[index]['cmyk']}`.split(',').join(', ')
+        cmykBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))[index]['cmyk']}`.split(',').join('. ')
+        localStorage.click = ''
       }
     }
 
-    if ((localStorage.click !== '' || item.classList.contains('choose-color')) && $(`.info__title-link--hsv:contains('F')`).hasClass('info__title-link--active')) {
+    if (item.classList.contains('choose-color') && $(`.info__title-link--hsv:contains('F')`).hasClass('info__title-link--active')) {
       if (typeChange == 'resPic') {
-        hsvBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))['floathsv']}`.split(',').join(', ')
+        hsvBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))['floathsv']}`.split(',').join('. ')
       } else if (typeChange == 'resPal'){
-        hsvBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))[index]['floathsv']}`.split(',').join(', ')
+        hsvBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))[index]['floathsv']}`.split(',').join('. ')
+        localStorage.click = ''
       }
-    } else if ((localStorage.click !== '' || item.classList.contains('choose-color')) && !$(`.info__title-link--hsv:contains('F')`).hasClass('info__title-link--active')){
+    } else if (item.classList.contains('choose-color') && !$(`.info__title-link--hsv:contains('F')`).hasClass('info__title-link--active')){
       if (typeChange == 'resPic') {
-        hsvBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))['hsv']}`.split(',').join(', ')
+        hsvBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))['hsv']}`.split(',').join('. ')
       } else if (typeChange == 'resPal'){
-        hsvBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))[index]['hsv']}`.split(',').join(', ')
+        hsvBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))[index]['hsv']}`.split(',').join('. ')
+        localStorage.click = ''
       }
     }
     
-    if ((localStorage.click !== '' || item.classList.contains('choose-color')) && item.classList.contains('choose-color')){
+    if (item.classList.contains('choose-color')){
       if (typeChange == 'resPic') {
         ncsBlock.textContent = `${JSON.parse(localStorage.getItem(typeChange))['ncs']}`
       } else if (typeChange == 'resPal'){
@@ -203,44 +199,21 @@ let writeColor = (typeChange)=>{
       }
     }
     if (typeChange == 'resPic') {
-      console.log(`Схуяли приходит `);
       $('#status').html(`- ${JSON.parse(localStorage.getItem(typeChange))['hex']} -`)
       $('#status--r').html(`- ${JSON.parse(localStorage.getItem(typeChange))['rgb'][0]} -`)
       $('#status--g').html(`- ${JSON.parse(localStorage.getItem(typeChange))['rgb'][1]} -`)
       $('#status--b').html(`- ${JSON.parse(localStorage.getItem(typeChange))['rgb'][2]} -`)
-      $('.pipetColor').addClass('choose-color')
-      colors.forEach((item, index, arr) => {
-        item.classList.remove('choose-color')
-      });
-    } else {
-      $('.pipetColor').removeClass('choose-color')
     }
   });
 }
-let resPicOrResPal = ()=>{
-  if (localStorage.click !== '') {
-    console.log('Отправляем resPic');
-    writeColor('resPic')
-  } else if (localStorage.click == '') {
-    writeColor('resPal')
-  }
-}
+// writeColor('resPic')
 if (localStorage.click !== '') {
   writeColor('resPic')
+  $('.pipetColor').backgroundColor = localStorage.click
 } else if (localStorage.click == '') {
+  $('.circle').
   writeColor('resPal')
 }
-
-if (localStorage.click !== ''){
-  $('.pipetColor').css("backgroundColor", `${localStorage.click}`);
-  $('.circle').css("top", `${localStorage.coordYBig}px`);
-  $('.circle').css("left", `${localStorage.coordX}px`);
-  $('.circle__tone').css('top', `${localStorage.coordYMin}px`)
-}
-// console.log(localStorage.hexMin)
-gr.addColorStop(1, `${localStorage.hexMin}`)
-context.fillStyle = gr
-context.fillRect(0,0,200,200)
 let rgbType = (color)=>{
   // if ($(`.info__title-link--rgb:contains('F')`).hasClass('info__title-link--active')) {
   //   rgbBlock.textContent = `${randomInt(2)} ${randomInt(2)} ${randomInt(2)}`
@@ -302,6 +275,12 @@ let translateColor = (color)=>{
   console.log(color);
 }
 
+let example = document.getElementById('example');
+let context = example.getContext('2d');
+let gr = context.createLinearGradient(200,0,0,200)
+gr.addColorStop(1, '#ff0000')
+context.fillStyle = gr
+context.fillRect(0,0,200,200)
 gr = context.createLinearGradient(0,0,200,0)
 gr.addColorStop(0.025,'rgba(255, 255, 255, 1)')
 gr.addColorStop(1,'rgba(255, 255, 255, 0)')
@@ -343,8 +322,9 @@ $('#example').mouseup(function (e) {
     $('.circle').css("top", y);
     $('.circle').css("left", x);
     $('#paletteForm').submit()
-    localStorage.coordX = x
-    localStorage.coordYBig = y
+    console.log(`Значение в input = ${paletteInp.value}`);
+    console.log(`RGB  = ${p[0]} ${p[1]} ${p[2]}`);
+    localStorage.setItem('coord', `$('.circle').css('left', ${x});`)
     localStorage.click = `rgb(${p[0]}, ${p[1]}, ${p[2]})`
 });
 
@@ -363,8 +343,7 @@ $('#example__tone').mouseup(function (e) {
   $('.circle__tone').css("display", "block");
   $('.circle__tone').css("top", y);
   $('.circle__tone').css("left", 0);
-  localStorage.hexMin = hex
-  localStorage.coordYMin = y
+
   let gr = context.createLinearGradient(200,0,0,200)
   gr.addColorStop(1, hex)
   context.fillStyle = gr

@@ -14,37 +14,37 @@
   <section class="section workPage">
     <div class="workPage-wrapper container">
         <div class="tools">
-          <div class="pipetTools pad"><img src="static\resources\pipette.png"></div>
+          <div class="pipetTools pad"><img src="static/img/pipette.png"></div>
           <div class="apps pad">Download app</div>
           <form method="post" enctype="multipart/form-data" id="addbtn">
-            <input type="file" name="photo" accept=".jpg, .jpeg, .png" id="dowload" class="dowload-btnInput" onclick=" localStorage.setItem('hexMin', '#ff0000'); localStorage.setItem('resPath', '123'); localStorage.setItem('resPal', '123'); localStorage.setItem('resPic', '123'); localStorage.setItem('click', '')"
-             onchange="$('#addbtn').submit(); basePalette();">
+            <input type="file" name="photo" accept=".jpg, .jpeg, .png" id="dowload" class="dowload-btnInput"
+             onchange="$('#addbtn').submit(); basePalette()">
              <label for="dowload" class="dowload_img pad">Upload image</label>
           </form>
         </div>
         <div class="colors">
-          <div class="color firstcolor choose-color" onclick="localStorage.click = ''; chooseColor(this), resPicOrResPal();"></div>
-          <div class="color" onclick="localStorage.click = ''; chooseColor(this), resPicOrResPal();"></div>
-          <div class="color" onclick="localStorage.click = ''; chooseColor(this), resPicOrResPal();"></div>
-          <div class="color" onclick="localStorage.click = ''; chooseColor(this), resPicOrResPal();"></div>
-          <div class="color" onclick="localStorage.click = ''; chooseColor(this), resPicOrResPal();"></div>
-          <div class="color" onclick="localStorage.click = ''; chooseColor(this), resPicOrResPal();"></div>
-          <div class="color" onclick="localStorage.click = ''; chooseColor(this), resPicOrResPal();"></div>
-          <div class="color secondcolor" onclick="localStorage.click = ''; chooseColor(this), resPicOrResPal();"></div>
+          <div class="color firstcolor choose-color" onclick="chooseColor(this), writeColor('resPal')"></div>
+          <div class="color" onclick="chooseColor(this), writeColor('resPal')"></div>
+          <div class="color" onclick="chooseColor(this), writeColor('resPal')"></div>
+          <div class="color" onclick="chooseColor(this), writeColor('resPal')"></div>
+          <div class="color" onclick="chooseColor(this), writeColor('resPal')"></div>
+          <div class="color" onclick="chooseColor(this), writeColor('resPal')"></div>
+          <div class="color" onclick="chooseColor(this), writeColor('resPal')"></div>
+          <div class="color secondcolor" onclick="chooseColor(this), writeColor('resPal')"></div>
 
-          <div class="pipetColor" onclick="showPic(); writeColor('resPic')"></div>
+          <div class="pipetColor"></div>
         </div>
         <div class="info">
           <div class="info__color-block">
-            <p class="info__title">rgb <span><a href="#!" class="info__title-link info__title-link--rgb" onclick="activeTypeRgb(this), chooseType(this), resPicOrResPal()">F</a> / <a href="#!" class="info__title-link info__title-link--rgb" onclick="activeTypeRgb(this), chooseType(this), resPicOrResPal()">H</a></span></p>
+            <p class="info__title">rgb <span><a href="#!" class="info__title-link info__title-link--rgb" onclick="activeTypeRgb(this), chooseType(this), writeColor('resPal')">F</a> / <a href="#!" class="info__title-link info__title-link--rgb" onclick="activeTypeRgb(this), chooseType(this), writeColor('resPal')">H</a></span></p>
             <span class="info__color-text"><span class="color-text__wrapper color-text__wrapper--rgb"></span><a href="#!"><img src="static\resources\Group 20.png"></a></span>
           </div>
           <div class="info__color-block info__color-block--cmyk">
-            <p class="info__title">cmyk <span><a href="#!" class="info__title-link info__title-link--cmyk" onclick="activeTypeCmyk(this), chooseType(this), resPicOrResPal()">F</a></span></p>
+            <p class="info__title">cmyk <span><a href="#!" class="info__title-link info__title-link--cmyk" onclick="activeTypeCmyk(this), chooseType(this), writeColor('resPal')">F</a></span></p>
             <span class="info__color-text"><span class="color-text__wrapper color-text__wrapper--cmyk"></span><a href="#!"><img src="static\resources\Group 20.png"></a></span>
           </div>
           <div class="info__color-block">
-            <p class="info__title">hsv <span><a href="#!" class="info__title-link info__title-link--hsv" onclick="activeTypeHsv(this), chooseType(this), resPicOrResPal()">F</a></span></p>
+            <p class="info__title">hsv <span><a href="#!" class="info__title-link info__title-link--hsv" onclick="activeTypeHsv(this), chooseType(this), writeColor('resPal')">F</a></span></p>
             <span class="info__color-text"><span class="color-text__wrapper color-text__wrapper--hsv"></span><a href="#!"><img src="static\resources\Group 20.png"></a></span>
           </div>
           <div class="info__color-block">
